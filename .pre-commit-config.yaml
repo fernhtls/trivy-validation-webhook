@@ -1,0 +1,34 @@
+repos:
+  - repo: local
+    hooks:
+    - id: go-unit-tests
+      name: go unit tests
+      entry: go test -p=1 ./...
+      pass_filenames: false
+      types: [go]
+      language: system
+    - id: go-fmt-check
+      name: go fmt check
+      entry: go fmt ./...
+      pass_filenames: false
+      types: [go]
+      language: system
+    - id: kubeconform
+      name: validate kubernetes manifests
+      language: system
+      entry: kubeconform
+      args:
+      - -strict
+      - -skip
+      - CustomResourceDefinition,Kustomization
+      - -schema-location
+      - default
+      - -schema-location
+      - 'https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/{{.Group}}/{{.ResourceKind}}_{{.ResourceAPIVersion}}.json'
+      files: ^k8s-yamls/.*
+  - repo: https://github.com/Agilicus/pre-commit-hook-k8svalidate.git
+    rev: v0.0.8
+    hooks:
+      - id: k8svalidate
+        args: [--exclude, "**/*.patch.yaml"]
+        files: .yaml$
