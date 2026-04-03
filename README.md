@@ -1,4 +1,4 @@
-# Dynimac admission controller - image inspection (trivy)
+# Dynamic admission controller - image inspection (trivy)
 
 This is more of an example on how to develope a `go` valiation webhook using `trivy`, and blocking the creation of pods that don't pass a severity criteria.
 
