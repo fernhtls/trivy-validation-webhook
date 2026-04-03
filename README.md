@@ -2,7 +2,7 @@
 
 This is more of an example on how to develope a `go` valiation webhook using `trivy`, and blocking the creation of pods that don't pass a severity criteria.
 
-The severity criteria has a [default settings](https://github.com/fernhtls//filename#16), but it can ve overwritten by env vars.
+The severity criteria has a [default settings](https://github.com/fernhtls/trivy-validation-webhook/blob/main/main.go#L36), but it can ve overwritten by env vars.
 
 The env var pattern to replace should be `TRIVY_<SEVERITY>_THRESHOLD`, and severity being `CRITICAL`, `HIGH` and others.
 
