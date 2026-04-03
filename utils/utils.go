@@ -6,6 +6,6 @@ type Severity string
 const (
 	Critical Severity = "CRITICAL"
 	High     Severity = "HIGH"
-	Medium	 Severity = "MEDIUM"
+	Medium   Severity = "MEDIUM"
 	Low      Severity = "LOW"
 )

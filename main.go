@@ -36,7 +36,7 @@ func init() {
 	// Setting default for severity thresholds
 	severitiesthreshold[string(utils.Critical)] = 0
 	severitiesthreshold[string(utils.High)] = 10
-	severitiesthreshold[string(utils.Medium)] = 20 
+	severitiesthreshold[string(utils.Medium)] = 20
 	severitiesthreshold[string(utils.Low)] = 50
 	envThresholdsParse(severitiesthreshold)
 	log.Printf("threshold settings : %v", severitiesthreshold)
