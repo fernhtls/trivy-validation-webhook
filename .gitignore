@@ -25,4 +25,4 @@
 # Go workspace file
 go.work
 ca-certs/*
-k8s-yamls/trivy-webhook-validation.yml
+k8s-yamls/trivy-webhook-validation.yaml
