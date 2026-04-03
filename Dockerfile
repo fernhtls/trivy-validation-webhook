@@ -8,11 +8,10 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o /app/main .
 
 # Final stage
 FROM alpine:latest
-# Adding triby binary to alpine
+# Adding trivy binary to alpine
 RUN apk update
 RUN apk add curl
 RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.69.3
-# RUN apk add trivy
 RUN addgroup -g 1001 -S appgroup && \
     adduser -u 1001 -S appuser -G appgroup
 USER appuser
